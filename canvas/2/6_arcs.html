@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        canvas { border: 1px solid black; }
+      </style>
+</head>
+<body onload="draw();">
+    <a href="https://developer.mozilla.org/ko/docs/Web/API/Canvas_API">Canvas_API</a>
+    <h1>Canvas 튜토리얼</h1>
+    <hr>
+
+    <h2>캔버스(canvas)를 이용한 도형 그리기 - 호</h2>
+    <div><a href="https://devjhs.tistory.com/574">arc-canvas에서 원 그리기</a></div>
+    <canvas id="canvas" width="150" height="200"></canvas>
+    <script>
+        function draw() {
+            var canvas = document.getElementById('canvas');
+            if(canvas.getContext){
+                var ctx = canvas.getContext('2d');
+                
+                for(var i = 0; i < 4; i++){
+                    for(var j = 0; j < 3; j++){
+                        ctx.beginPath();
+                        var x = 25 + j * 50; // x coordinate
+                        var y = 25 + i * 50; // y coordinate
+                        var radius =20; // Arc radius
+                        var startAngle = 0; // Starting point on circle
+                        var endAngle = Math.PI + (Math.PI * j) / 2; // End point on circle
+                        var anticlockwise = i % 2 === 0 ? false : true;  // clockwise or anticlockwise
+
+                        ctx.arc(x, y, radius, startAngle, endAngle, anticlockwise);
+
+                        if (i > 1) {
+                            ctx.fill();
+                        } else {
+                            ctx.stroke();
+                        }
+                    }
+                }
+                
+            }
+        }
+        /*
+        호나 원을 그리기위해서는 arc() 혹은 arcTo() 메소드를 사용
+
+        arc(x, y, radius, startAngle, endAngle, anticlockwise) 
+            (x, y) 위치에 원점을 두면서, 반지름 r을 가지고,  
+            startAngle 에서 시작하여 endAngle 에서 끝나며 
+            주어진 anticlockwise 방향으로 향하는 (기본값은 시계방향 회전) 호를 그리게 됩니다.
+        
+        arcTo(x1, y1, x2, y2, radius) 
+            주어진 제어점들과 반지름으로 호를 그리고,
+            이전 점과 직선으로 연결합니다.
+
+        
+        x 와 y는 호를 그릴 때 필요한 원점 좌표입니다.
+        반지름(radius) 은 말 그대로 호의 반지름을 뜻합니다.
+        startAngle 및 endAngle 매개 변수는 원의 커브를 따라 호의 시작점과 끝점을 라디안 단위로 정의합니다.
+        이 변수들은 x축을 기준으로 계산됩니다.
+        Boolean 값을 가지는 anticlockwise 변수는 true일 때 호를 반시계 방향으로 그리게 되며,
+        그렇지 않을 경우에는 시계 방향으로 그리게 됩니다.
+
+        arc 함수에서 각도는 각이 아닌 라디안 값을 사용합니다. 
+        각도를 라디안으로 바꾸려면 다음의 자바스크립트(JavaScript) 코드를 사용하실 수 있습니다: 
+        radians = (Math.PI/180)*degrees.
+        */
+    </script>
+</body>
+</html>

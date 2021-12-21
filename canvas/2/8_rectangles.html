@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        canvas { border: 1px solid black; }
+      </style>
+</head>
+<body onload="draw();">
+    <a href="https://developer.mozilla.org/ko/docs/Web/API/Canvas_API">Canvas_API</a>
+    <h1>Canvas 튜토리얼</h1>
+    <hr>
+
+    <h2>캔버스(canvas)를 이용한 도형 그리기 - 직사각형 2</h2>
+    <canvas id="canvas" width="150" height="200"></canvas>
+    <script>
+        function draw() {
+            var canvas = document.getElementById('canvas');
+            if(canvas.getContext){
+                var ctx = canvas.getContext('2d');
+                ctx.beginPath();
+                ctx.rect(10, 10, 125, 125)
+                ctx.stroke();
+            }
+        }
+        /*
+        rect(x, y, width, height)
+            좌측상단이 (x, y)이고 폭과 높이가 width와 height인 직사각형을 그립니다.
+        
+        이 메소드가 실행되기 전에, (x,y) 매개변수를 가진 moveTo() 메소드가 자동으로 호출됩니다. 
+        즉, 현재의 펜위치가 자동으로 기본 좌표로 초기화 됩니다.
+        */
+    </script>
+</body>
+</html>

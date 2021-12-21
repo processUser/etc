@@ -14,7 +14,7 @@
     <h1>Canvas 튜토리얼</h1>
     <hr>
 
-    <h2>캔버스(canvas)를 이용한 도형 그리기 - 경로그리기</h2>
+    <h2>캔버스(canvas)를 이용한 도형 그리기 - 삼각형 그리기</h2>
     
     <canvas id="canvas" width="150" height="150"></canvas>
     <script>
@@ -22,6 +22,12 @@
             var canvas = document.getElementById('canvas');
             if(canvas.getContext){
                 var ctx = canvas.getContext('2d');
+                
+                ctx.beginPath();
+                ctx.moveTo(75, 50);
+                ctx.lineTo(100, 75);
+                ctx.lineTo(100, 25);
+                ctx.fill();
                 
             }
         }
