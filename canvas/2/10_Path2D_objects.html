@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        canvas { border: 1px solid black; }
+      </style>
+</head>
+<body onload="draw();">
+    <a href="https://developer.mozilla.org/ko/docs/Web/API/Canvas_API">Canvas_API</a>
+    <h1>Canvas 튜토리얼</h1>
+    <hr>
+
+    <h2>캔버스(canvas)를 이용한 도형 그리기 - Path2D 오브젝트 (Path2D objects)</h2>
+    <canvas id="canvas" width="300" height="300"></canvas>
+    <script>
+        function draw() {
+            var canvas = document.getElementById('canvas');
+
+            new Path2D();     // empty path object
+            new Path2D(path); // copy from another Path2D object
+            new Path2D(d);    // path from SVG path data
+        }
+        /*
+        Path2D()
+            Path2D() 생성자는 새로운 Path2D 객체를 반환합니다. 
+            선택적으로 다른 경로를 인수로 받거나(복사본을 생성), 
+            SVG 경로 데이터로 구성된 문자열을 받아서 객체로 반환합니다.
+
+        Path2D.addPath(path [, transform])
+            옵션으로 변환 행렬(transformation matrix)을 사용하여 
+            현재 경로에 경로를 추가합니다.
+        */
+    </script>
+</body>
+</html>
