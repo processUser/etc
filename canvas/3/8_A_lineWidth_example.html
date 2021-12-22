@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        canvas { border: 1px solid black; }
+      </style>
+</head>
+<body onload="draw();">
+    <ul>
+        <li>
+            <a href="https://developer.mozilla.org/ko/docs/Web/API/Canvas_API">Canvas_API</a>
+        </li>
+        
+    </ul>
+    <h1>Canvas 튜토리얼</h1>
+    <hr>
+
+    <h2>스타일과 색 적용하기 - lineWidth 예제</h2>
+    <canvas id="canvas" width="300" height="300"></canvas>
+    <script>
+        function draw() {
+            var ctx = document.getElementById('canvas').getContext('2d');
+            for (var i = 0; i < 10; i++){
+                ctx.lineWidth = 1 + i;
+                ctx.beginPath();
+                ctx.moveTo(5 + i * 14, 5);
+                ctx.lineTo(5 + i * 14, 140);
+                ctx.stroke();
+            }
+        }
+        /*
+        만일 (3,1)에서 (3,5)로 그리는 직선의 두께가 1.0이라면, 
+        채워진 실제 영역 (진한 파란색)은 패스의 양쪽에있는 픽셀의 절반까지만 확장됩니다. 
+        이것은 1 픽셀을 채우는 것이 아니므로 근사값으로 화면에 그려지게 됩니다. 
+
+        이렇게 되는 것을 막으려면, 경로를 아주 정밀하게 생성해야 합니다. 
+        선의 두께가 1.0이면 경로의 양쪽으로 0.5 단위만큼이라는 것을 알고 있으니, 
+        (3.5, 1)에서 (3.5, 5)로 그리는 경로를 생성하는 세번째 이미지의 결과는 완벽히 정밀하게 1 픽셀 두께의 수직선이 됩니다.
+
+
+        */
+    </script>
+</body>
+</html>

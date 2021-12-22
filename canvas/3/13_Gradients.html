@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        canvas { border: 1px solid black; }
+      </style>
+</head>
+<body onload="draw();">
+    <ul>
+        <li>
+            <a href="https://developer.mozilla.org/ko/docs/Web/API/Canvas_API">Canvas_API</a>
+        </li>
+        
+    </ul>
+    <h1>Canvas 튜토리얼</h1>
+    <hr>
+
+    <h2>스타일과 색 적용하기 - 그라디언트(Gradient)</h2>
+    <canvas id="canvas" width="300" height="300"></canvas>
+    <script>
+        
+        var lineargradient = ctx.createLinearGradient(0, 0, 150, 150);
+        var radialgradient = ctx.createRadialGradient(75, 75, 0, 75, 75, 100);
+        
+        var lineargradient = ctx.createLinearGradient(0, 0, 150, 150);
+        lineargradient.addColorStop(0, 'white');
+        lineargradient.addColorStop(1, 'black');
+        /*
+        다른 그래픽 프로그램들과 마찬가지로, 선형 및 원형의 그레이디언트를 사용할 수 있습니다. 다음 메소드 중 하나를 사용하여 CanvasGradient (en-US) 객체를 생성합니다. 그런 다음 이 객체를 fillStyle 또는 strokeStyle 속성에 할당 할 수 있습니다.
+        CanvasGradient 객체를 만들었다면, addColorStop() 메소드를 사용하여, 오브젝트에 색을 적용할 수 있습니다.
+        색 중단점은 원하는 만큼 마음대로 추가할 수 있습니다.
+
+
+        createLinearGradient(x1, y1, x2, y2) (en-US)
+            시작점 좌표를 (x1, y1)로 하고, 종료점 좌표를 (x2, y2)로 하는 선형 그라디언트 오브젝트를 생성합니다.
+        createRadialGradient(x1, y1, r1, x2, y2, r2) (en-US)
+            반지름이 r1이고 좌표 (x1, y1)을 중심으로 하는 원과, 반지름이 r2이고 좌표 (x2, y2)를 중심으로 하는 원을 사용하여 그라디언트가 생성됩니다.
+        createConicGradient(angle, x, y)
+            angle위치( x, y) 에서 시작 각도( 단위: 라디안)를 사용하여 원추형 그라디언트 개체를 만듭니다 .
+            파이어 폭스에서만 지원됨.
+        gradient.addColorStop(position, color) (en-US)
+            gradient 오브젝트에 새로운 색 중단점(color stop)을 생성합니다. position은 0.0에서 1.0 사이의 숫자이고 그라디언트에서 색상의 상대적인 위치를 정의합니다. color 인자는 CSS <color>를 나타내는 문자열이어야하고, 그라디언트가 (전환효과로) 진행되면서 도달한 지점의 색상을 의미합니다.
+
+        */
+    </script>
+</body>
+</html>

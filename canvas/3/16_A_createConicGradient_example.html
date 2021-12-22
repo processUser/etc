@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        canvas { border: 1px solid black; }
+      </style>
+</head>
+<body onload="draw();">
+    <ul>
+        <li>
+            <a href="https://developer.mozilla.org/ko/docs/Web/API/Canvas_API">Canvas_API</a>
+        </li>
+        
+    </ul>
+    <h1>Canvas 튜토리얼</h1>
+    <hr>
+
+    <h2>스타일과 색 적용하기 - createConicGradient 예제</h2>
+    <p>파이어폭스에서 지원됨!</p>
+    <canvas id="canvas" width="300" height="300"></canvas>
+    <script>
+        
+        function draw() {
+            var ctx = document.getElementById('canvas').getContext('2d');
+
+            // Create gradients
+            var conicGrad1 = ctx.createConicGradient(2, 62, 75);
+            conicGrad1.addColorStop(0, '#A7D30C');
+            conicGrad1.addColorStop(1, '#fff');
+
+            var conicGrad2 = ctx.createConicGradient(0, 187, 75);
+            // we multiple our values by Math.PI/180 to convert degrees to radians
+            conicGrad2.addColorStop(0, 'black');
+            conicGrad2.addColorStop(0.25, 'black');
+            conicGrad2.addColorStop(0.25, 'white');
+            conicGrad2.addColorStop(0.5, 'white');
+            conicGrad2.addColorStop(0.5, 'black');
+            conicGrad2.addColorStop(0.75, 'black');
+            conicGrad2.addColorStop(0.75, 'white');
+            conicGrad2.addColorStop(1, 'white');
+
+            // draw shapes
+            ctx.fillStyle = conicGrad1;
+            ctx.fillRect(12, 25, 100, 100);
+            ctx.fillStyle = conicGrad2;
+            ctx.fillRect(137, 25, 100, 100);
+        }
+        /*
+
+        The first gradient is positioned in the center of the first rectangle and moves a green color stop at the start, to a white one at the end. The angle starts at 2 radians, which is noticeable because of the beginning/end line pointing south east.
+
+        The second gradient is also positioned at the center of it's second rectangle. This one has multiple color stops, alternating from black to white at each quarter of the rotation. This gives us the checkered effect.
+
+        */
+    </script>
+</body>
+</html>

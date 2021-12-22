@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        canvas { border: 1px solid black; }
+      </style>
+</head>
+<body onload="draw();">
+    <ul>
+        <li>
+            <a href="https://developer.mozilla.org/ko/docs/Web/API/Canvas_API">Canvas_API</a>
+        </li>
+        
+    </ul>
+    <h1>Canvas 튜토리얼</h1>
+    <hr>
+
+    <h2>스타일과 색 적용하기 - 패턴(Patterns)</h2>
+    <canvas id="canvas" width="300" height="300"></canvas>
+    <script>
+        
+        var img = new Image();
+        img.src = 'someimage.png';
+        var ptrn = ctx.createPattern(img, 'repeat');
+
+        /*
+
+        createPattern(image, type) (en-US)
+            새 캔버스 패턴 객체를 만들어 반환합니다. image는 CanvasImageSource (en-US)(즉, HTMLImageElement (en-US), 다른 캔버스, <video> 요소 등등)입니다. type은 이미지 사용 방법을 나타내는 문자열입니다.
+
+        type은 패턴을 만들기 위해 이미지를 사용하는 방법을 지정하며, 다음 문자열 값 중 하나 여야합니다.
+
+        repeat
+            수직 및 수평 방향으로 이미지를 이어 붙입니다.
+        repeat-x
+            수평 방향으로만 이미지를 이어 붙입니다.
+        repeat-y
+            수직 방향으로만 이미지를 이어 붙입니다.
+        no-repeat
+            이미지를 이어 붙이지 않습니다. 이미지는 한번만 사용됩니다.
+
+        이 메소드를 사용하여 위에서 본 그라디언트 메소드와 매우 유사한 CanvasPattern (en-US) 객체를 생성합니다. 패턴을 생성하면 fillStyle 또는 strokeStyle 속성에 패턴을 할당 할 수 있습니다.
+        
+        참고(주의) : drawImage() 메서드와 마찬가지로 이 메소드를 호출하기 전에 이미지가 로드되었는지 확인해야합니다. 그렇지 않으면 패턴이 잘못 그려 질 수 있습니다.
+        */
+    </script>
+</body>
+</html>

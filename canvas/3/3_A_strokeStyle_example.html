@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        canvas { border: 1px solid black; }
+      </style>
+</head>
+<body onload="draw();">
+    <ul>
+        <li>
+            <a href="https://developer.mozilla.org/ko/docs/Web/API/Canvas_API">Canvas_API</a>
+        </li>
+        
+    </ul>
+    <h1>Canvas 튜토리얼</h1>
+    <hr>
+
+    <h2>스타일과 색 적용하기 - strokeStyle 예제</h2>
+    <canvas id="canvas" width="300" height="300"></canvas>
+    <script>
+        function draw() {
+            var canvas = document.getElementById('canvas');
+            if (canvas.getContext) {
+                var ctx = canvas.getContext('2d');
+                
+                for (var i = 0; i < 6; i++) {
+                    for (var j = 0; j < 6; j++) {
+                        ctx.strokeStyle = 'rgb(0, ' + Math.floor(255 - 42.5 * i) + ', ' + Math.floor(255 - 42.5 * j) + ')';
+                        ctx.beginPath();
+                        ctx.arc(12.5 + j * 25, 12.5 + i * 25, 10, 0, Math.PI * 2, true);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+        /*
+        
+        */
+    </script>
+</body>
+</html>

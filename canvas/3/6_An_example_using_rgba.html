@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        canvas { border: 1px solid black; }
+      </style>
+</head>
+<body onload="draw();">
+    <ul>
+        <li>
+            <a href="https://developer.mozilla.org/ko/docs/Web/API/Canvas_API">Canvas_API</a>
+        </li>
+        
+    </ul>
+    <h1>Canvas 튜토리얼</h1>
+    <hr>
+
+    <h2>스타일과 색 적용하기 - globalAlpha 예제</h2>
+    <canvas id="canvas" width="300" height="300"></canvas>
+    <script>
+        function draw() {
+            var canvas = document.getElementById('canvas');
+            if (canvas.getContext) {
+                var ctx = canvas.getContext('2d');
+                
+                // 배경을 그린다
+                ctx.fillStyle = 'rgb(255,221,0)';
+                ctx.fillRect(0,0,150,37.5);
+                ctx.fillStyle = 'rgb(102,204,0)';
+                ctx.fillRect(0,37.5,150,37.5);
+                ctx.fillStyle = 'rgb(0,153,255)';
+                ctx.fillRect(0,75,150,37.5);
+                ctx.fillStyle = 'rgb(255,51,0)';
+                ctx.fillRect(0,112.5,150,37.5);
+
+                // 반투명한 사각형을 그린다
+                for (var i=0;i<10;i++){
+                    ctx.fillStyle = 'rgba(255,255,255,'+(i+1)/10+')';
+                    for (var j=0;j<4;j++){
+                        ctx.fillRect(5+i*14,5+j*37.5,14,27.5)
+                    }
+                }
+            }
+        }
+        /*
+        
+        */
+    </script>
+</body>
+</html>

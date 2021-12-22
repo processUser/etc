@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        canvas { border: 1px solid black; }
+      </style>
+</head>
+<body onload="draw();">
+    <ul>
+        <li>
+            <a href="https://developer.mozilla.org/ko/docs/Web/API/Canvas_API">Canvas_API</a>
+        </li>
+        
+    </ul>
+    <h1>Canvas 튜토리얼</h1>
+    <hr>
+
+    <h2>스타일과 색 적용하기 - lineJoin 예제</h2>
+    <canvas id="canvas" width="300" height="300"></canvas>
+    <script>
+        function draw() {
+            var ctx = document.getElementById('canvas').getContext('2d');
+            var lineJoin = ['round', 'bevel', 'miter'];
+            ctx.lineWidth = 10;
+            for (var i=0;i<lineJoin.length;i++){
+                ctx.lineJoin = lineJoin[i];
+                ctx.beginPath();
+                ctx.moveTo(-5, 5 + i * 40);
+                ctx.lineTo(35, 45 + i * 40);
+                ctx.lineTo(75, 5 + i * 40);
+                ctx.lineTo(115, 45 + i * 40);
+                ctx.lineTo(155, 5 + i * 40);
+                ctx.stroke();
+            }
+        }
+        /*
+        lineJoin 속성은, 도형을 이루는 선이나 호나 곡선들이 연결되는 지점의 모양을 결정합니다. 끝점과 제어점이 정확히 같은 위치인, 길이가 0인 부분들은 제외된다.
+        두 부분들이 같은 방향으로 연결되어 있는 경우에는, lineJoin을 설정해도 아무런 효과가 나타나지 않습니다.
+
+
+        round
+            도형의 모서리를, 연결되는 부분들의 공통 끝점을 중심으로 하는 원 모양으로 만듭니다. 이때 원의 반지름은 선의 두께와 같습니다.
+        bevel
+            도형의 모서리를, 연결되는 부분들의 공통 끝점에서 세모 모양으로 만듭니다.
+        miter
+            초기 설정값
+            도형의 모서리를, 두 부분의 바깥쪽 테두리 선을 각각 연장하여 교차된 점으로 생긴 마름모꼴 모양으로 만듭니다. 
+            miterLimit 속성값에 따라 모양이 달라집니다.
+
+        */
+    </script>
+</body>
+</html>

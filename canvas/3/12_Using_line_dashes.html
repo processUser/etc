@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        canvas { border: 1px solid black; }
+      </style>
+</head>
+<body onload="draw();">
+    <ul>
+        <li>
+            <a href="https://developer.mozilla.org/ko/docs/Web/API/Canvas_API">Canvas_API</a>
+        </li>
+        
+    </ul>
+    <h1>Canvas 튜토리얼</h1>
+    <hr>
+
+    <h2>스타일과 색 적용하기 - 대시라인 사용하기</h2>
+    <canvas id="canvas" width="300" height="300"></canvas>
+    <script>
+        var ctx = document.getElementById('canvas').getContext('2d');
+        var offset = 0;
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.setLineDash([4, 2]);
+            ctx.lineDashOffset = -offset;
+            ctx.strokeRect(10, 10, 100, 100);
+        }
+
+        function march() {
+            offset++;
+            if (offset > 16) {
+                offset = 0;
+            }
+            draw();
+            setTimeout(march, 20);
+        }
+
+        march();
+        /*
+        setLineDash 메소드와 lineDashOffset 속성은 선의 대시 패턴을 지정합니다.
+        
+        etLineDash 메소드는 거리를 지정하는 숫자 목록을 받아 선과 틈을 교대로 그리며 
+        lineDashOffset 속성은 패턴을 시작할 위치를 오프셋으로 설정합니다.
+
+        */
+    </script>
+</body>
+</html>

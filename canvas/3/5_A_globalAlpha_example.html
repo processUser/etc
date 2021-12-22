@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        canvas { border: 1px solid black; }
+      </style>
+</head>
+<body onload="draw();">
+    <ul>
+        <li>
+            <a href="https://developer.mozilla.org/ko/docs/Web/API/Canvas_API">Canvas_API</a>
+        </li>
+        
+    </ul>
+    <h1>Canvas 튜토리얼</h1>
+    <hr>
+
+    <h2>스타일과 색 적용하기 - globalAlpha 예제</h2>
+    <canvas id="canvas" width="300" height="300"></canvas>
+    <script>
+        function draw() {
+            var canvas = document.getElementById('canvas');
+            if (canvas.getContext) {
+                var ctx = canvas.getContext('2d');
+                
+                // 배경을 그린다
+                ctx.fillStyle = '#FD0';
+                ctx.fillRect(0, 0, 75, 75);
+                ctx.fillStyle = '#6C0';
+                ctx.fillRect(75, 0, 75, 75);
+                ctx.fillStyle = '#09F';
+                ctx.fillRect(0, 75, 75, 75);
+                ctx.fillStyle = '#F30';
+                ctx.fillRect(75, 75, 75, 75);
+                ctx.fillStyle = '#FFF';
+
+                // 투명값을 설정한다
+                ctx.globalAlpha = 0.2;
+
+                // 반투명한 원을 그린다
+                for (var i = 0; i < 7; i++){
+                    ctx.beginPath();
+                    ctx.arc(75, 75, 10 + 10 * i, 0, Math.PI * 2, true);
+                    ctx.fill();
+                }
+            }
+        }
+        /*
+        
+        */
+    </script>
+</body>
+</html>

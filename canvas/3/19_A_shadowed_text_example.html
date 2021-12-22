@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        canvas { border: 1px solid black; }
+      </style>
+</head>
+<body onload="draw();">
+    <ul>
+        <li>
+            <a href="https://developer.mozilla.org/ko/docs/Web/API/Canvas_API">Canvas_API</a>
+        </li>
+        
+    </ul>
+    <h1>Canvas 튜토리얼</h1>
+    <hr>
+
+    <h2>스타일과 색 적용하기 - 그림자, 그림자 있는 글자 예제</h2>
+    <canvas id="canvas" width="300" height="300"></canvas>
+    <script>
+        
+        function draw() {
+            var ctx = document.getElementById('canvas').getContext('2d');
+
+            ctx.shadowOffsetX = 2;
+            ctx.shadowOffsetY = 2;
+            ctx.shadowBlur = 2;
+            ctx.shadowColor = "rgba(0, 0, 0, 0.5)";
+
+            ctx.font = "20px Times New Roman";
+            ctx.fillStyle = "Black";
+            ctx.fillText("Sample String", 5, 30);
+        }
+
+        /*
+        shadowOffsetX = float (en-US)
+            그림자가 객체에서 연장되어야하는 수평 거리를 나타냅니다. 이 값은 변환 행렬의 영향을 받지 않습니다. 기본값은 0입니다.
+        shadowOffsetY = float (en-US)
+            그림자가 객체에서 연장되어야하는 수직 거리를 나타냅니다. 이 값은 변환 행렬의 영향을 받지 않습니다. 기본값은 0입니다.
+        shadowBlur = float (en-US)
+            흐림(blur) 효과의 크기를 나타냅니다. 이 값은 픽셀 수와 일치하지 않으며 현재 변환 행렬의 영향을 받지 않습니다. 기본값은 0입니다.
+        shadowColor = color (en-US)
+            그림자 효과의 색상을 나타내는 표준 CSS 색상 값. 기본적으로 완전 검은색입니다.
+        
+        shadowOffsetX 및 shadowOffsetY 속성은 그림자가 X 및 Y 방향으로 객체에서 얼마나 멀리 떨어져야하는지 나타냅니다. 이 값은 현재 변환 행렬의 영향을받지 않습니다. 음수값을 사용하면 그림자가 위로 또는 왼쪽으로 확장되고 양수값을 사용하면 그림자가 아래로 또는 오른쪽으로 확장됩니다. 기본값은 모두 0입니다.
+
+        shadowBlur 속성은 흐림 효과의 크기를 나타냅니다. 이 값은 픽셀 수와 일치하지 않으며 현재 변환 행렬의 영향을받지 않습니다. 기본값은 0입니다.
+
+        shadowColor 속성은 그림자 효과의 색상을 나타내는 표준 CSS 색상 값입니다. 기본값은 완전 검은색입니다.
+
+        */
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        canvas { border: 1px solid black; }
+      </style>
+</head>
+<body onload="draw();">
+    <ul>
+        <li>
+            <a href="https://developer.mozilla.org/ko/docs/Web/API/Canvas_API">Canvas_API</a>
+        </li>
+        
+    </ul>
+    <h1>Canvas 튜토리얼</h1>
+    <hr>
+
+    <h2>스타일과 색 적용하기 - createLinearGradient 예제</h2>
+    <canvas id="canvas" width="300" height="300"></canvas>
+    <script>
+        
+        function draw() {
+            var ctx = document.getElementById('canvas').getContext('2d');
+
+            // 그레이디언트를 생성한다
+            var lingrad = ctx.createLinearGradient(0, 0, 0, 150);
+            lingrad.addColorStop(0, '#00ABEB');
+            lingrad.addColorStop(0.5, '#fff');
+            lingrad.addColorStop(0.5, '#26C000');
+            lingrad.addColorStop(1, '#fff');
+
+            var lingrad2 = ctx.createLinearGradient(0, 50, 0, 95);
+            lingrad2.addColorStop(0.5, '#000');
+            lingrad2.addColorStop(1, 'rgba(0, 0, 0, 0)');
+
+            // 외곽선과 채움 스타일에 그레이디언트를 적용한다
+            ctx.fillStyle = lingrad;
+            ctx.strokeStyle = lingrad2;
+
+            // 도형을 그린다
+            ctx.fillRect(10, 10, 130, 130);
+            ctx.strokeRect(50, 50, 50, 50);
+
+        }
+        /*
+        첫번째 그라디언트는 배경 그라디언트입니다.
+        두 번째 그래디언트에서는 시작 색상 (위치 0.0)을 지정하지 않았는데, 자동으로 다음 색상 중단점의 색상으로 가정하기 때문에 반드시 필요하지는 않기 때문입니다. 
+        따라서 위치 0.5에 검은색을 지정하면 시작부터 중단점까지 자동으로 검정색 그라이언트를 만듭니다.
+        */
+    </script>
+</body>
+</html>

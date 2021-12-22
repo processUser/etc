@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        canvas { border: 1px solid black; }
+      </style>
+</head>
+<body onload="draw();">
+    <ul>
+        <li>
+            <a href="https://developer.mozilla.org/ko/docs/Web/API/Canvas_API">Canvas_API</a>
+        </li>
+        
+    </ul>
+    <h1>Canvas 튜토리얼</h1>
+    <hr>
+
+    <h2>스타일과 색 적용하기 - lineCap 예제</h2>
+    <canvas id="canvas" width="300" height="300"></canvas>
+    <script>
+        function draw() {
+            var ctx = document.getElementById('canvas').getContext('2d');
+            var lineCap = ['butt','round','square'];
+
+            // 안내선을 그린다
+            ctx.strokeStyle = '#09f';
+            ctx.beginPath();
+            ctx.moveTo(10, 10);
+            ctx.lineTo(140, 10);
+            ctx.moveTo(10, 140);
+            ctx.lineTo(140, 140);
+            ctx.stroke();
+
+            // 선을 그린다
+            ctx.strokeStyle = 'black';
+            for (var i=0;i<lineCap.length;i++){
+                ctx.lineWidth = 15;
+                ctx.lineCap = lineCap[i];
+                ctx.beginPath();
+                ctx.moveTo(25 + i * 50, 10);
+                ctx.lineTo(25 + i * 50,140);
+                ctx.stroke();
+            }
+        }
+        /*
+        lineCap 속성은 
+        butt
+            초기 설정값, 선의 끝이 좌표에 딱맞게 잘립니다.
+        round
+            선의 끝이 동그랗습니다.
+        square
+            선 끝에, 선 두께 반만큼의 사각형 영역이 더해집니다
+
+        */
+    </script>
+</body>
+</html>

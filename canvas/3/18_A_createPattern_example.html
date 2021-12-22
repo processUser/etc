@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        canvas { border: 1px solid black; }
+      </style>
+</head>
+<body onload="draw();">
+    <ul>
+        <li>
+            <a href="https://developer.mozilla.org/ko/docs/Web/API/Canvas_API">Canvas_API</a>
+        </li>
+        
+    </ul>
+    <h1>Canvas 튜토리얼</h1>
+    <hr>
+
+    <h2>스타일과 색 적용하기 - createPattern 예제</h2>
+    <canvas id="canvas" width="300" height="300"></canvas>
+    <script>
+        
+        function draw() {
+            var ctx = document.getElementById('canvas').getContext('2d');
+
+            // 패턴으로 사용할 이미지 오브젝트를 생성한다
+            var img = new Image();
+            img.src = 'https://mdn.mozillademos.org/files/222/Canvas_createpattern.png';
+            img.onload = function() {
+
+                // 패턴을 생성한다
+                var ptrn = ctx.createPattern(img,'repeat');
+                ctx.fillStyle = ptrn;
+                ctx.fillRect(0,0,150,150);
+
+            }
+        }
+
+        /*
+
+        */
+    </script>
+</body>
+</html>

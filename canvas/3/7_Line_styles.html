@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        canvas { border: 1px solid black; }
+      </style>
+</head>
+<body onload="draw();">
+    <ul>
+        <li>
+            <a href="https://developer.mozilla.org/ko/docs/Web/API/Canvas_API">Canvas_API</a>
+        </li>
+        
+    </ul>
+    <h1>Canvas 튜토리얼</h1>
+    <hr>
+
+    <h2>스타일과 색 적용하기 - 선 모양</h2>
+    <canvas id="canvas" width="300" height="300"></canvas>
+    <script>
+        function draw() {
+            var canvas = document.getElementById('canvas');
+            if (canvas.getContext) {
+                var ctx = canvas.getContext('2d');
+                
+                
+            }
+        }
+        /*
+        lineWidth = value (en-US)
+            이후 그려질 선의 두께를 설정합니다.
+        lineCap = type (en-US)
+            선의 끝 모양을 설정합니다.
+        lineJoin = type (en-US)
+            선들이 만나는 "모서리"의 모양을 설정합니다.
+        miterLimit = value (en-US)
+            두 선이 예각으로 만날 때 접합점의 두께를 제어할 수 있도록, 
+            연결부위의 크기를 제한하는 값을 설정합니다.
+        getLineDash() (en-US)
+            음수가 아닌 짝수를 포함하는 현재 선의 대시 패턴 배열을 반환합니다.
+        setLineDash(segments) (en-US)
+            현재 선의 대시 패턴을 설정합니다.
+        lineDashOffset = value (en-US)
+            선의 대시 배열이 어디서 시작될지 지정합니다.
+        */
+    </script>
+</body>
+</html>

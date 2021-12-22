@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        canvas { border: 1px solid black; }
+      </style>
+</head>
+<body onload="draw();">
+    <ul>
+        <li>
+            <a href="https://developer.mozilla.org/ko/docs/Web/API/Canvas_API">Canvas_API</a>
+        </li>
+        
+    </ul>
+    <h1>Canvas 튜토리얼</h1>
+    <hr>
+
+    <h2>스타일과 색 적용하기 - 투명도</h2>
+    <canvas id="canvas" width="300" height="300"></canvas>
+    <script>
+        function draw() {
+            var canvas = document.getElementById('canvas');
+            if (canvas.getContext) {
+                var ctx = canvas.getContext('2d');
+                
+                // 외곽선과 채움 스타일에 투명 적용
+
+                ctx.strokeStyle = 'rgba(255, 0, 0, 0.5)';
+                ctx.fillStyle = 'rgba(255, 0, 0, 0.5)';
+            }
+        }
+        /*
+        globalAlpha = transparencyValue (en-US)
+            투명도 값이 설정되면 이후 캔버스에 그려지는 모든 도형들의 투명도가 바뀝니다. 
+            설정하는 값은 0.0(완전히 투명)과 1.0(완전히 불투명) 사이에 있어야 하며, 
+            초기 설정값은 1.0(완전히 투명)입니다.
+        strokeStyle과 fillStyle 값에 CSS rgba 색상값을 적용할 수 있으므로, 
+        투명한 색을 적용하려면 아래와 같은 표기법을 사용할 수 있습니다.
+        */
+    </script>
+</body>
+</html>

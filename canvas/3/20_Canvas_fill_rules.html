@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        canvas { border: 1px solid black; }
+      </style>
+</head>
+<body onload="draw();">
+    <ul>
+        <li>
+            <a href="https://developer.mozilla.org/ko/docs/Web/API/Canvas_API">Canvas_API</a>
+        </li>
+        
+    </ul>
+    <h1>Canvas 튜토리얼</h1>
+    <hr>
+
+    <h2>스타일과 색 적용하기 - 캔버스 채우기 규칙</h2>
+    <canvas id="canvas" width="300" height="300"></canvas>
+    <script>
+        
+        function draw() {
+            var ctx = document.getElementById('canvas').getContext('2d');
+            ctx.beginPath();
+            ctx.arc(50, 50, 30, 0, Math.PI * 2, true);
+            ctx.arc(50, 50, 15, 0, Math.PI * 2, true);
+            ctx.fill('evenodd');
+        }
+
+        /*
+        fill (혹은 clip (en-US) 및 isPointinPath (en-US))을 사용할 때 한 점이 경로 안쪽 또는 바깥에 있는지 그리고 따라서 채워지는지 여부를 결정하기 위한 채우기 규칙 알고리즘을 선택적으로 제공 할 수 있습니다. 경로가 교차하거나 중첩 된 경우에 유용합니다.
+
+        "nonzero": non-zero winding rule 알고리즘. 기본값.
+        "evenodd": even-odd winding rule 알고리즘
+        */
+    </script>
+</body>
+</html>
