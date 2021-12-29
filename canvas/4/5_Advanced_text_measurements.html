@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        canvas { border: 1px solid black; }
+      </style>
+</head>
+<body onload="draw();">
+    <ul>
+        <li>
+            <a href="https://developer.mozilla.org/ko/docs/Web/API/Canvas_API">Canvas_API</a>
+        </li>
+        
+    </ul>
+    <h1>Canvas 튜토리얼</h1>
+    <hr>
+
+    <h2>텍스트 그리기 - 어드밴스드 텍스트 측정</h2>
+    <canvas id="canvas" width="300" height="300"></canvas>
+    <script>
+        // 어떻게 텍스트를 측정하는 지, 그리고 폭을 구하는 예제
+        function draw() {
+            var ctx = document.getElementById('canvas').getContext('2d');
+            var text = ctx.measureText('foo'); // TextMetrics object
+            text.width; // 16;
+        }
+        /*
+        measureText() (en-US)
+            현재 스타일로 특정 텍스트가 그려질 때의 폭, 픽셀 등을 포함하는 TextMetrics (en-US) 객체 리턴. 
+        */
+    </script>
+</body>
+</html>

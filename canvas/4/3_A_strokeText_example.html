@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        canvas { border: 1px solid black; }
+      </style>
+</head>
+<body onload="draw();">
+    <ul>
+        <li>
+            <a href="https://developer.mozilla.org/ko/docs/Web/API/Canvas_API">Canvas_API</a>
+        </li>
+        
+    </ul>
+    <h1>Canvas 튜토리얼</h1>
+    <hr>
+
+    <h2>텍스트 그리기 - strokeText 예제</h2>
+    <canvas id="canvas" width="300" height="300"></canvas>
+    <script>
+        function draw() {
+            var ctx = document.getElementById('canvas').getContext('2d');
+            ctx.font = '48px serif';
+            ctx.strokeText('Hello world', 10, 50);
+        }
+        /*
+        fillText(text, x, y [, maxWidth]) (en-US)
+            주어진 (x, y) 위치에 주어진 텍스트를 채웁니다. 
+            최대 폭(width)은 옵션 값 입니다.
+        strokeText(text, x, y [, maxWidth]) (en-US)
+            주어진 (x, y) 위치에 주어진 텍스트를 칠(stroke)합니다. 
+            최대 폭(width)은 옵션 값 입니다.
+        */
+    </script>
+</body>
+</html>
