@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        canvas { border: 1px solid black; }
+      </style>
+</head>
+<body onload="draw();">
+    <ul>
+        <li>
+            <a href="https://developer.mozilla.org/ko/docs/Web/API/Canvas_API">Canvas_API</a>
+        </li>
+        
+    </ul>
+    <h1>Canvas 튜토리얼</h1>
+    <hr>
+
+    <h2>변형 (transformations) - 회전(rotating)</h2>
+    <div>rotate 예제</div>
+    <canvas id="canvas" width="300" height="300"></canvas>
+    <script>
+        function draw() {
+            var ctx = document.getElementById('canvas').getContext('2d');
+
+            // 좌측 사각형, canvas 원점에서 회전하기
+            ctx.save();
+            // 파란 사각형
+            ctx.fillStyle = '#0095DD';
+            ctx.fillRect(30, 30, 100, 100);
+            ctx.rotate((Math.PI / 180) * 25);
+            // 회색 사각형
+            ctx.fillStyle = '#4D4E53';
+            ctx.fillRect(30, 30, 100, 100);
+            ctx.restore();
+
+            // 우측 사각형, 사각형 중심에서 회전하기
+            // 파란 사각형 그리기
+            ctx.fillStyle = '#0095DD';
+            ctx.fillRect(150, 30, 100, 100);
+
+            ctx.translate(200, 80); // 사각형 중심으로 이동하기
+                                    // x = x + 0.5 * width
+                                    // y = y + 0.5 * height
+            ctx.rotate((Math.PI / 180) * 25); // 회전
+            ctx.translate(-200, -80); // 예전 위치로 이동하기
+
+            // 회색 사각형 그리기
+            ctx.fillStyle = '#4D4E53';
+            ctx.fillRect(150, 30, 100, 100);
+        }
+        
+        /*
+        rotate(angle) (en-US)
+            canvas를 현재 원점을 기준으로 라디안의 angle 숫자만큼 시계방향으로 회전시킵니다.
+    
+        회전의 중심점은 언제나 canvas 원점입니다. 
+        중심점을 바꾸려면 translate() 메소드를 써서 canvas를 이동해야 합니다.
+
+        주의: 각도의 단위는 도(degree)가 아닌 라디안(radian)입니다.   변환하려면 radians = (Math.PI/180)*degrees.를 사용합니다.
+
+        */
+    </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        canvas { border: 1px solid black; }
+      </style>
+</head>
+<body onload="draw();">
+    <ul>
+        <li>
+            <a href="https://developer.mozilla.org/ko/docs/Web/API/Canvas_API">Canvas_API</a>
+        </li>
+        
+    </ul>
+    <h1>Canvas 튜토리얼</h1>
+    <hr>
+
+    <h2>변형 (transformations) - 변형(transforms)</h2>
+    <div>transform과 setTransform 예제</div>
+    <canvas id="canvas" width="300" height="300"></canvas>
+    <script>
+        function draw() {
+            var ctx = document.getElementById('canvas').getContext('2d');
+
+            var sin = Math.sin(Math.PI / 6);
+            var cos = Math.cos(Math.PI / 6);
+            ctx.translate(100, 100);
+            var c = 0;
+            for (var i = 0; i <= 12; i++) {
+                c = Math.floor(255 / 12 * i);
+                ctx.fillStyle = 'rgb(' + c + ', ' + c + ', ' + c + ')';
+                ctx.fillRect(0, 0, 100, 10);
+                ctx.transform(cos, sin, -sin, cos, 0, 0);
+            }
+
+            ctx.setTransform(-1, 0, 0, 1, 100, 100);
+            ctx.fillStyle = 'rgba(255, 128, 255, 0.5)';
+            ctx.fillRect(0, 50, 100, 100);
+        }
+        
+        /*
+        transform(a, b, c, d, e, f) (en-US)
+            인수(arguments)에 표시된 행렬을 이용해 현재 변환 행렬을 곱합니다. 변환 행렬은 다음과 같이 작성됩니다. 
+        
+            a	c	e
+         [  b	d	f  ]
+            0	0	1
+        
+            만일 인수 중에 Infinity가 있다면, 변환 행렬은 예외 처리하는 메소드 대신에 반드시 infinite로 표시되어야 합니다.
+        
+        이 function의 매개 변수들은 다음과 같습니다.
+
+            a (m11)
+                수평으로 확대·축소하기
+            b (m12)
+                수평으로 비스듬히 기울이기
+            c (m21)
+                수직으로 비스듬히 기울이기
+            d (m22)
+                수직으로 확대·축소하기
+            e (dx)
+                수평으로 이동하기
+            f (dy)
+                수직으로 이동하기
+
+        setTransform(a, b, c, d, e, f) (en-US)
+            현재 변형 상태를 단위 행렬로 재설정하고 나서 동일한 인수로 transform() 메소드를 적용합니다. 이는 기본적으로 현재의 변형을 무효로 한 후에 명시된 변형으로 바뀌는데, 한번에 모든 게 진행됩니다.
+        
+        resetTransform() (en-US)
+            현재 변형 상태를 단위 행렬로 재설정합니다. 이는 ctx.setTransform(1, 0, 0, 1, 0, 0); 호출과 같습니다.
+
+        */
+    </script>
+</body>
+</html>

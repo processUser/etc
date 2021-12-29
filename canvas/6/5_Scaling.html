@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        canvas { border: 1px solid black; }
+      </style>
+</head>
+<body onload="draw();">
+    <ul>
+        <li>
+            <a href="https://developer.mozilla.org/ko/docs/Web/API/Canvas_API">Canvas_API</a>
+        </li>
+        
+    </ul>
+    <h1>Canvas 튜토리얼</h1>
+    <hr>
+
+    <h2>변형 (transformations) - 확대·축소(scaling)</h2>
+    <div>scale 예제</div>
+    <canvas id="canvas" width="300" height="300"></canvas>
+    <script>
+        function draw() {
+            var ctx = document.getElementById('canvas').getContext('2d');
+
+            // 간단하지만 확대·축소 비율을 적용한 사각형 그리기
+            ctx.save();
+            ctx.scale(10, 3);
+            ctx.fillRect(1, 10, 10, 10);
+            ctx.restore();
+
+            // 수평으로 대칭하기
+            ctx.scale(-1, 1);
+            ctx.font = '48px serif';
+            ctx.fillText('MDN', -135, 120);
+        }
+        
+        /*
+        scale(x, y) (en-US)
+            canvas 단위를 수평으로 x만큼, 수직으로 y만큼 크기를 확대·축소합니다. 둘의 매개 변수는 실수입니다. 1.0보다 작은 값이면 단위의 크기를 축소하고, 1.0보다 큰 값이면 단위의 크기를 확대합니다. 값이 1.0이면 단위의 크기는 그대로입니다.
+        
+        음수를 이용해서 축을 대칭 시킬 수 있습니다(가령 translate(0,canvas.height); scale(1,-1);로 쓰는 것처럼 말이죠. 좌측 하단 모서리에 있는 원점을 이용한, 잘 알려진 카르테시안 좌표계(Cartesian coordinate)인 것이지요.
+
+        기본적으로 canvas에서 하나의 단위는 정확히 1픽셀입니다. 예를 들어 0.5라는 확대·축소 비율을 적용한다면, 결과로 나오는 단위는 0.5 픽셀이 될 것이고, 고로 모양도 절반 크기로 그려질 것입니다. 이런 방식으로 크기 비율을 2.0으로 잡으면 단위 크기가 확대되어 하나의 단위는 이제 2픽셀이 되겠지요. 이 결과로 모양은 그만큼 2배로 커집니다.
+
+        */
+    </script>
+</body>
+</html>

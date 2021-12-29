@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        canvas { border: 1px solid black; }
+      </style>
+</head>
+<body onload="draw();">
+    <ul>
+        <li>
+            <a href="https://developer.mozilla.org/ko/docs/Web/API/Canvas_API">Canvas_API</a>
+        </li>
+        
+    </ul>
+    <h1>Canvas 튜토리얼</h1>
+    <hr>
+
+    <h2>변형 (transformations) - 상태(state)의 저장과 복원</h2>
+    <canvas id="canvas" width="300" height="300"></canvas>
+    <script>
+        
+        /*
+        save() (en-US)
+            canvas의 모든 상태를 저장합니다.
+        restore() (en-US)
+            가장 최근에 저장된 canvas 상태를 복원합니다.
+        
+        Canvas 상태는 스택(stack)에 쌓입니다. save() 메소드가 호출될 때마다 현재 drawing 상태가 스택 위로 푸시됩니다. drawing 상태는 다음과 같이 이루어집니다.
+
+            이전부터 적용된 변형(가령,  translate과 rotate와 scale 같은 – 아래의 내용을 보세요).
+            
+            다음 속성(attributes)의 현재 값:
+            strokeStyle (en-US), fillStyle (en-US), globalAlpha (en-US), lineWidth (en-US), lineCap (en-US), lineJoin (en-US), miterLimit (en-US), lineDashOffset (en-US), shadowOffsetX (en-US), shadowOffsetY (en-US), shadowBlur (en-US), shadowColor (en-US), globalCompositeOperation (en-US), font (en-US), textAlign (en-US), textBaseline (en-US), direction (en-US), imageSmoothingEnabled (en-US).
+            
+            현재의 clipping path
+        */
+    </script>
+</body>
+</html>
