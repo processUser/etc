@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        canvas { border: 1px solid black; }
+      </style>
+</head>
+<body onload="draw();">
+    <ul>
+        <li>
+            <a href="https://developer.mozilla.org/ko/docs/Web/API/Canvas_API">Canvas_API</a>
+        </li>
+        
+    </ul>
+    <h1>Canvas 튜토리얼</h1>
+    <hr>
+
+    <h2>이미지 사용하기 - 이미지 자르기</h2>
+    <div>예제: 이미지 프레임 넣기</div>
+    <canvas id="canvas" width="300" height="300"></canvas>
+    <div style="display:none;">
+        <img id="source" src="https://mdn.mozillademos.org/files/5397/rhino.jpg" width="300" height="227">
+        <img id="frame" src="https://mdn.mozillademos.org/files/242/Canvas_picture_frame.png" width="132" height="150">
+    </div>
+    <script>
+        function draw() {
+            var canvas = document.getElementById('canvas');
+            var ctx = canvas.getContext('2d');
+
+            // Draw slice
+            ctx.drawImage(document.getElementById('source'),
+                            33, 71, 104, 124, 21, 20, 87, 104);
+
+            // Draw frame
+            ctx.drawImage(document.getElementById('frame'), 0, 0);
+        }
+        /*
+        drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight) (en-US)
+            Given an image, this function takes the area of the source image specified by the rectangle whose top-left corner is (sx, sy) and whose width and height are sWidth and sHeight and draws it into the canvas, placing it on the canvas at (dx, dy) and scaling it to the size specified by dWidth and dHeight.
+        
+        */
+
+    </script>
+</body>
+</html>
